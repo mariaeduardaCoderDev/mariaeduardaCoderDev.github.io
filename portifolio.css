@@ -14,6 +14,7 @@ body {
 .interface {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 4%; /* Garante espaçamento lateral em telas pequenas */
 }
 
 .flex {
@@ -29,21 +30,20 @@ body {
     background-color: #4011da;
     border: 0;
     border-radius: 30px;
-
 }
 
-h2.titulo{
+h2.titulo {
     color: #fff;
     font-size: 38px;
     text-align: center;
 }
-h2.titulo span{
+
+h2.titulo span {
     color: #4011da;
 }
 
 /* ESTILO CABEÇALHO */
-
-.header {
+header {
     padding: 40px 4%;
 }
 
@@ -51,6 +51,7 @@ header>.interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Permite quebra em mobile */
 }
 
 header a {
@@ -65,15 +66,13 @@ header a:hover {
     transform: scale(1.05);
 }
 
-header>nav ul {
+header nav ul {
     list-style-type: none;
 }
-
 
 .menu-desktop ul li {
     display: inline-block;
     padding: 0 40px;
-
 }
 
 .contato-madu a button:hover {
@@ -83,7 +82,6 @@ header>nav ul {
 }
 
 /* ESTILO DO TOPO DO SITE */
-
 section.topo-do-site {
     padding: 40px 4%;
 }
@@ -98,7 +96,6 @@ section.topo-do-site .flex {
     color: #fff;
     font-size: 42px;
     line-height: 40px;
-
 }
 
 .topo-do-site .txt-topo-site h1 span {
@@ -112,96 +109,206 @@ section.topo-do-site .flex {
 
 .topo-do-site .img-topo-site {
     position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate; 
+    animation: flutuar 2s ease-in-out infinite alternate;
 }
 
 @keyframes flutuar {
     0% {
         top: 0;
     }
-
     100% {
         top: 30px;
     }
 }
 
 /* ESTILO DAS ESPECIALIDADES */
-
-section.especialidades{
+section.especialidades {
     padding: 40px 4%;
 }
 
-section.especialidades{
+.especialidades .flex {
     gap: 60px;
+    flex-wrap: wrap; /* cards quebram em mobile */
+    justify-content: center;
 }
 
-.especialidades .especialidades-box{
+.especialidades .especialidades-box {
     color: #fff;
     padding: 40px;
     margin-top: 45px;
     border-radius: 20px;
     transition: .2s;
+    flex: 1 1 280px; /* largura mínima e flexível */
 }
 
-.especialidades .especialidades-box i{
+.especialidades .especialidades-box i {
     font-size: 70px;
     color: #ffffff;
 }
 
-.especialidades .especialidades-box h3{
+.especialidades .especialidades-box h3 {
     font-size: 28px;
     margin: 15px 0px;
 }
 
-.especialidades .especialidades-box:hover{
+.especialidades .especialidades-box:hover {
     transform: scale(1.05);
     box-shadow: 0 0 8px #ffffff8e;
 }
 
 /* ESTILO SOBRE */
-
-section.sobre{
+section.sobre {
     padding: 40px 4%;
 }
 
-section.sobre .flex{
+section.sobre .flex {
     align-items: center;
     gap: 60px;
+    flex-wrap: wrap;
 }
 
-.sobre .txt-sobre{
+.sobre .txt-sobre {
     color: #fff;
+    flex: 1;
 }
 
-.sobre .txt-sobre h2{
+.sobre .txt-sobre h2 {
     font-size: 40px;
     line-height: 40px;
     margin-bottom: 30px;
 }
 
-.sobre .txt-sobre h2 span{
+.sobre .txt-sobre h2 span {
     color: #4011da;
     display: block;
 }
 
-.sobre .txt-sobre p{
-    margin: 30px 0 ;
+.sobre .txt-sobre p {
+    margin: 30px 0;
     text-align: justify;
 }
 
-.sobre .txt-sobre .social-madu button{
+.sobre .txt-sobre .social-madu button {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     border: 0;
     background-color: #945eff;
+    cursor: pointer;
 }
 
 .social-madu a button:hover {
-
     transform: scale(1.1);
     transition: .2s;
     box-shadow: 0 0 8px #6350a3;
-
 }
 
+/* ========== RESPONSIVIDADE ========== */
+@media screen and (max-width: 1024px) {
+    .menu-desktop ul li {
+        padding: 0 20px;
+    }
+    .topo-do-site h1 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    /* Cabeçalho empilhado */
+    header>.interface {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .menu-desktop ul {
+        padding: 0;
+        text-align: center;
+    }
+    .menu-desktop ul li {
+        display: inline-block;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Geral */
+    .flex {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    /* Topo do site */
+    .topo-do-site .flex {
+        flex-direction: column-reverse; /* imagem primeiro ou texto? Coloquei imagem primeiro visualmente */
+        text-align: center;
+        gap: 40px;
+    }
+    .topo-do-site h1 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    .txt-topo-site p {
+        font-size: 16px;
+    }
+    .img-topo-site img {
+        max-width: 90%;
+        height: auto;
+    }
+    
+    /* Especialidades */
+    .especialidades .especialidades-box {
+        margin-top: 20px;
+        padding: 30px;
+    }
+    h2.titulo {
+        font-size: 30px;
+    }
+    
+    /* Sobre */
+    .sobre .txt-sobre h2 {
+        font-size: 32px;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .sobre .txt-sobre h2 span {
+        display: inline-block;
+    }
+    .img-sobre {
+        text-align: center;
+    }
+    .social-madu {
+        text-align: center;
+    }
+    
+    /* Botões */
+    .contato-madu a button {
+        padding: 8px 30px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-desktop ul li {
+        display: block; /* menu em coluna */
+        margin: 10px 0;
+        padding: 0;
+    }
+    .menu-desktop ul li a {
+        font-size: 18px;
+    }
+    .topo-do-site h1 {
+        font-size: 24px;
+    }
+    .especialidades .especialidades-box {
+        padding: 20px;
+    }
+    .especialidades .especialidades-box i {
+        font-size: 50px;
+    }
+    .sobre .txt-sobre p {
+        font-size: 15px;
+    }
+    .social-madu button {
+        height: 50px;
+        width: 50px;
+    }
+}
