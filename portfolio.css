@@ -315,5 +315,22 @@ section.portfolio .flex{
 .img-port{
     width: 360px;
     height: 460px;
+
+    background-image: url("FOTOGRAFIA.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    background-color: #4011da;
+}
+.img-port2{
+    width: 360px;
+    height: 460px;
+
+    background-image: url("Coleta.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+
     background-color: #4011da;
 }
